@@ -17,7 +17,7 @@ class CheckingAccount < BankAccount
       withdraw(amount+8)
       account.deposit(amount)
     else 
-      puts 'Saldo insuficiente!'
+      puts 'Insufficient balance!'
     end
   end
 
