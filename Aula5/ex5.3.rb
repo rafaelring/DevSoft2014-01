@@ -47,20 +47,25 @@ people = [
 
 # 1) Quantas pessoas são homens?
 
-result = people.count { |x| x[gender] == male}
+result = people.count { |x| x[:gender] == :male}
 puts "Há #{result} homens."
+
 # 2) Quantas são mulheres?
 
-# Seu código aqui...
+result = people.count { |x| x[:gender] == :female}
+puts "Há #{result} mulheres."
 
 # 3) Quantas pessoas são maiores de idade?
 
-# Seu código aqui...
+result = people.count { |x| x[:age] >= 18}
+puts "Há #{result} pessoas maiores de idade."
 
 # 4) Qual a soma das idades de todos os brasileiros?
-
-# Seu código aqui...
+result = people.reject { |x| x[:country] != 'Brazil'}.
+reduce(0) { |sum, x| sum + x[:age]}
+puts "A soma da idade dos brasileiros é #{result}."
 
 # 5) Imprima todos os nomes em ordem alfabética
 
-# Seu código aqui...
+result = people.sort_by { |x| x[:name]}
+result.each { |x| puts x[:name]}
